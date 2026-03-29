@@ -1,0 +1,60 @@
+[project]
+name = "metal-stats"
+version = "0.1.0"
+description = "Metal band data visualization and exploration platform"
+authors = [
+    {name = "ipritchard", email = "ianmpritchard@gmail.com"}
+]
+requires-python = ">=3.10"
+
+dependencies = [
+    # Scraping & data collection
+    "enmet",
+    "pylast",
+    "geopy",
+    "requests",
+    "beautifulsoup4",
+    "curl_cffi",
+
+    # CSV / data wrangling
+    "pandas",
+
+    # Database
+    "duckdb",
+
+    # API
+    "fastapi>=0.100",
+    "uvicorn[standard]",
+    "pydantic>=2",
+
+    # Config
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "httpx",
+    "ruff",
+    "mypy",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 99
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+.venv/
+
+# Data / checkpoints
+data/checkpoints/
+*.duckdb
+*.duckdb.wal
+
+# IDE
+.idea/
+
+# Environment
+.env
+
+# OS
+.DS_Store
